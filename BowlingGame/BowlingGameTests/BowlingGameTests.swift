@@ -9,11 +9,6 @@ class BowlingGameTests: XCTestCase {
         bowling = Bowling(bowlingModel: BowlingModel())
     }
     
-    func test_NumberOfFramesEqualsToTenForAGame() {
-        
-        XCTAssertEqual(bowling.numberOfFrames(), 10)
-    }
-    
     func test_NumberOfRollsForAFrame() {
         
         XCTAssertEqual(bowling.numberOfRolls(), 2)

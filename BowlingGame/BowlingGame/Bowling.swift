@@ -3,13 +3,10 @@ class Bowling {
     private var bowlingModel:BowlingModel!
 
     private var currentIndex = 0
+    private let numberOfFrames = 10
     
     init(bowlingModel:BowlingModel) {
         self.bowlingModel = bowlingModel
-    }
-    
-    func numberOfFrames() -> Int {
-        return 10
     }
     
     func numberOfRolls() -> Int {
