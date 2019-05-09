@@ -12,6 +12,7 @@
 		9E3A883C2284CCD6002A259A /* BowlingGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A883B2284CCD6002A259A /* BowlingGameUITests.swift */; };
 		9E3A884A2284CDBF002A259A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A88492284CDBF002A259A /* Launch Screen.storyboard */; };
 		9E3A884D2284CEE2002A259A /* Bowling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A884C2284CEE2002A259A /* Bowling.swift */; };
+		9E3A88502284D7F0002A259A /* BowlingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A884F2284D7F0002A259A /* BowlingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		9E3A883D2284CCD6002A259A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3A88492284CDBF002A259A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		9E3A884C2284CEE2002A259A /* Bowling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bowling.swift; sourceTree = "<group>"; };
+		9E3A884F2284D7F0002A259A /* BowlingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				9E3A881B2284CCD4002A259A /* AppDelegate.swift */,
+				9E3A884E2284D7E0002A259A /* Model */,
 				9E3A884C2284CEE2002A259A /* Bowling.swift */,
 				9E3A884B2284CE55002A259A /* LaunchScreen */,
 				9E3A88272284CCD6002A259A /* Info.plist */,
@@ -125,6 +128,14 @@
 				9E3A88492284CDBF002A259A /* Launch Screen.storyboard */,
 			);
 			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		9E3A884E2284D7E0002A259A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9E3A884F2284D7F0002A259A /* BowlingModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3A884D2284CEE2002A259A /* Bowling.swift in Sources */,
+				9E3A88502284D7F0002A259A /* BowlingModel.swift in Sources */,
 				9E3A881C2284CCD4002A259A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

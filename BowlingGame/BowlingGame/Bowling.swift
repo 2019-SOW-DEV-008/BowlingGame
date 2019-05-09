@@ -1,5 +1,13 @@
 class Bowling {
     
+    private var bowlingModel:BowlingModel!
+
+    private var currentIndex = 0
+    
+    init(bowlingModel:BowlingModel) {
+        self.bowlingModel = bowlingModel
+    }
+    
     func numberOfFrames() -> Int {
         return 10
     }
@@ -8,7 +16,18 @@ class Bowling {
         return 2
     }
     
-    func getScore(pins:Int) -> Int {
-        return pins
+    func roll(pins:Int) {
+        self.bowlingModel.rolls[currentIndex] = pins
+        currentIndex += 1
+    }
+    
+    func getScore() -> Int {
+        var rollIndex = 0
+        
+        for _ in self.bowlingModel.rolls {
+            self.bowlingModel.score += self.bowlingModel.rolls[rollIndex]
+            rollIndex += 1
+        }
+        return self.bowlingModel.score
     }
 }

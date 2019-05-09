@@ -6,8 +6,9 @@ class BowlingGameTests: XCTestCase {
     private var bowling:Bowling!
     
     override func setUp() {
-        bowling = Bowling()
+        bowling = Bowling(bowlingModel: BowlingModel())
     }
+    
     func test_NumberOfFramesEqualsToTenForAGame() {
         
         XCTAssertEqual(bowling.numberOfFrames(), 10)
@@ -19,22 +20,21 @@ class BowlingGameTests: XCTestCase {
     }
 
     func test_ScoreShouldReturnZero_WhenZeroPins_InSingleRoll() {
+        bowling.roll(pins: 0)
         
-        XCTAssertEqual(bowling.getScore(pins:0), 0)
+        XCTAssertEqual(bowling.getScore(), 0)
     }
     
-    func test_ScoreShouldReturnValue_When_N_NumberOfPins_InSingleRoll() {
-        let numberOfPins = 9
+    func test_ScoreShouldReturnValue_When_Nine_NumberOfPins_InSingleRoll() {
+        bowling.roll(pins: 9)
         
-        XCTAssertEqual(bowling.getScore(pins:9), numberOfPins)
+        XCTAssertEqual(bowling.getScore(), 9)
     }
-    
-    func test_ScoreShouldReturnValue_When_TenNumberOfPins_InEverySingleRoll() {
-        let TenIntegers = 1...10
+
+    func test_ScoreShouldReturnSix_When_OnePinInFirstRoll_AndFivePinsInSecondRoll() {
+        bowling.roll(pins: 1)
+        bowling.roll(pins: 5)
         
-        TenIntegers.forEach { pins in
-            XCTAssertEqual(bowling.getScore(pins:pins), pins)
-        }
-        
+        XCTAssertEqual(bowling.getScore(), 6)
     }
 }
