@@ -8,4 +8,10 @@ class BowlingGameTests: XCTestCase {
         
         XCTAssertEqual(bowling.numberOfFrames(), 10)
     }
+    
+    func test_NumberOfRollsForAFrame() {
+        let bowling = Bowling()
+        
+        XCTAssertEqual(bowling.numberOfRolls(), 2)
+    }
 }
