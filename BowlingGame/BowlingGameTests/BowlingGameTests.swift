@@ -18,4 +18,8 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.numberOfRolls(), 2)
     }
 
+    func test_ScoreShouldReturnZero_WhenZeroPinsInSingleRoll() {
+        
+        XCTAssertEqual(bowling.getScore(pins:0), 0)
+    }
 }

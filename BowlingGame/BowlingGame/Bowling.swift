@@ -7,4 +7,8 @@ class Bowling {
     func numberOfRolls() -> Int {
         return 2
     }
+    
+    func getScore(pins:Int) -> Int {
+        return 0
+    }
 }
