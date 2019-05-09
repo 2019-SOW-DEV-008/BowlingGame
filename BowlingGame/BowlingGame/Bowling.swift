@@ -1,7 +1,7 @@
 class Bowling {
     
     private var bowlingModel:BowlingModel!
-
+    
     private var currentIndex = 0
     private let numberOfFrames = 10
     
@@ -31,18 +31,31 @@ class Bowling {
 }
 
 private extension Bowling {
+    
     func evaluateScore(_ rollIndex: inout Int) {
         if (isStrike(rollIndex)) {
-            self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex+1] + self.bowlingModel.rolls[rollIndex + 2]
+            updateScoreInStrikeBonus(rollIndex)
             rollIndex += 1
         }
         else if (isSpare(rollIndex)) {
-            self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex + 2]
+            updateScoreInSpareBonus(rollIndex)
             rollIndex += 2
         } else {
-            self.bowlingModel.score += self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1]
+            updateScore(rollIndex)
             rollIndex += 2
         }
+    }
+    
+    func updateScoreInStrikeBonus(_ rollIndex: Int) {
+        self.bowlingModel.score += getStikeScore(rollIndex)
+    }
+    
+    func updateScoreInSpareBonus(_ rollIndex: Int) {
+        self.bowlingModel.score += getSpareScore(rollIndex)
+    }
+    
+    func updateScore(_ rollIndex: Int) {
+        self.bowlingModel.score += getScore(rollIndex)
     }
     
     func isStrike(_ rollIndex: Int) -> (Bool) {
@@ -52,5 +65,16 @@ private extension Bowling {
     func isSpare(_ rollIndex: Int) -> (Bool) {
         return (self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1] == 10)
     }
-
+    
+    func getStikeScore(_ rollIndex: Int) -> Int {
+        return 10 + self.bowlingModel.rolls[rollIndex+1] + self.bowlingModel.rolls[rollIndex + 2]
+    }
+    
+    func getSpareScore(_ rollIndex: Int) -> Int {
+        return 10 + self.bowlingModel.rolls[rollIndex + 2]
+    }
+    
+    func getScore(_ rollIndex: Int) -> Int {
+        return self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1]
+    }
 }
