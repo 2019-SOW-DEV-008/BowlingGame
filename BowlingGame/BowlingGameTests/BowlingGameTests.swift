@@ -64,7 +64,7 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 16)
     }
     
-    func test_ScoreShouldReturnTwentyFive_When_TwoSpares_WhereSpareIs_SixInFirstRollAndFourInSecondRoll() {
+    func test_ScoreShouldReturnTwentySix_When_TwoSpares_WhereSpareIs_SixInFirstRollAndFourInSecondRoll() {
         rollSpare()
         rollSpare()
         
