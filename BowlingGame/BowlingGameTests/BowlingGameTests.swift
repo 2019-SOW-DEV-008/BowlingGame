@@ -3,15 +3,19 @@ import XCTest
 
 class BowlingGameTests: XCTestCase {
 
+    private var bowling:Bowling!
+    
+    override func setUp() {
+        bowling = Bowling()
+    }
     func test_NumberOfFramesEqualsToTenForAGame() {
-        let bowling = Bowling()
         
         XCTAssertEqual(bowling.numberOfFrames(), 10)
     }
     
     func test_NumberOfRollsForAFrame() {
-        let bowling = Bowling()
         
         XCTAssertEqual(bowling.numberOfRolls(), 2)
     }
+
 }
