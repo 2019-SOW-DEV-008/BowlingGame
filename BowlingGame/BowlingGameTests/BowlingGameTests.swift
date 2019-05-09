@@ -20,20 +20,20 @@ class BowlingGameTests: XCTestCase {
     }
 
     func test_ScoreShouldReturnZero_WhenZeroPins_InSingleRoll() {
-        bowling.roll(pins: 0)
+        rollBall(times: 1, pins: 0)
         
         XCTAssertEqual(bowling.getScore(), 0)
     }
     
     func test_ScoreShouldReturnValue_When_Nine_NumberOfPins_InSingleRoll() {
-        bowling.roll(pins: 9)
+        rollBall(times: 1, pins: 9)
         
         XCTAssertEqual(bowling.getScore(), 9)
     }
 
     func test_ScoreShouldReturnSix_When_OnePinInFirstRoll_AndFivePinsInSecondRoll() {
-        bowling.roll(pins: 1)
-        bowling.roll(pins: 5)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 5)
         
         XCTAssertEqual(bowling.getScore(), 6)
     }
