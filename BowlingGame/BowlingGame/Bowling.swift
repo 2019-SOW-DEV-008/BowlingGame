@@ -28,9 +28,15 @@ class Bowling {
         
         return self.bowlingModel.score
     }
-    
-    private func evaluateScore(_ rollIndex: inout Int) {
-        if (isSpare(rollIndex)) {
+}
+
+private extension Bowling {
+    func evaluateScore(_ rollIndex: inout Int) {
+        if (isStrike(rollIndex)) {
+            self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex+1] + self.bowlingModel.rolls[rollIndex + 2]
+            rollIndex += 1
+        }
+        else if (isSpare(rollIndex)) {
             self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex + 2]
             rollIndex += 2
         } else {
@@ -39,7 +45,12 @@ class Bowling {
         }
     }
     
-    private func isSpare(_ rollIndex: Int) -> (Bool) {
+    func isStrike(_ rollIndex: Int) -> (Bool) {
+        return (self.bowlingModel.rolls[rollIndex] == 10)
+    }
+    
+    func isSpare(_ rollIndex: Int) -> (Bool) {
         return (self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1] == 10)
     }
+
 }

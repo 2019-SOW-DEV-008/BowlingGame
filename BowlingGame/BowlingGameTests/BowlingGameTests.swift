@@ -71,6 +71,47 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 26)
     }
     
+    func test_ScoreShouldReturnFourteen_When_StrikeFollowedByOneAndOne() {
+        rollStrike()
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 1)
+        
+        XCTAssertEqual(bowling.getScore(), 14)
+    }
+    
+    func test_ScoreShouldReturnThreeHundred_When_PerfectRoll_WhichIsAllStrikes() {
+        rollBall(times: 12, pins: 10)
+        
+        XCTAssertEqual(bowling.getScore(), 300)
+    }
+    
+    func test_EvaluateScore_WithMultipleInput() {
+        rollBall(times: 1, pins: 0)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 5)
+        rollBall(times: 1, pins: 5)
+        rollBall(times: 1, pins: 7)
+        rollBall(times: 1, pins: 2)
+        rollBall(times: 1, pins: 0)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 0)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 0)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 0)
+        rollBall(times: 1, pins: 8)
+        rollBall(times: 1, pins: 2)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 10)
+        
+        XCTAssertEqual(bowling.getScore(), 147)
+    }
+    
+
     private func rollBall(times:Int, pins:Int) {
 
         for _ in 1...times {
@@ -81,5 +122,9 @@ class BowlingGameTests: XCTestCase {
     private func rollSpare() {
         rollBall(times: 1, pins: 6)
         rollBall(times: 1, pins: 4)
+    }
+    
+    private func rollStrike() {
+        rollBall(times: 1, pins: 10)
     }
 }
