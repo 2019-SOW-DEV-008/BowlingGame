@@ -111,6 +111,29 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 147)
     }
     
+    func test_EvaluateScore_WithMultipleInputValues() {
+        rollBall(times: 1, pins: 7)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 3)
+        rollBall(times: 1, pins: 5)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 6)
+        rollBall(times: 1, pins: 3)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 6)
+        rollBall(times: 1, pins: 4)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 1)
+        rollBall(times: 1, pins: 10)
+        rollBall(times: 1, pins: 9)
+        rollBall(times: 1, pins: 1)
+        
+        XCTAssertEqual(bowling.getScore(), 169)
+    }
+    
 
     private func rollBall(times:Int, pins:Int) {
 
