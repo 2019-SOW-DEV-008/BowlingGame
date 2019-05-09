@@ -20,15 +20,26 @@ class Bowling {
     
     func getScore() -> Int {
         var rollIndex = 0
-
-        evaluateScore(&rollIndex)
+        let frames = 1...numberOfFrames
+        
+        frames.forEach {_ in
+            evaluateScore(&rollIndex)
+        }
+        
         return self.bowlingModel.score
     }
     
     private func evaluateScore(_ rollIndex: inout Int) {
-        for _ in self.bowlingModel.rolls {
-            self.bowlingModel.score += self.bowlingModel.rolls[rollIndex]
-            rollIndex += 1
+        if (isSpare(rollIndex)) {
+            self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex + 2]
+            rollIndex += 3
+        } else {
+            self.bowlingModel.score += self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1]
+            rollIndex += 2
         }
+    }
+    
+    private func isSpare(_ rollIndex: Int) -> (Bool) {
+        return (self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1] == 10)
     }
 }
