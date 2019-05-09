@@ -32,7 +32,7 @@ class Bowling {
     private func evaluateScore(_ rollIndex: inout Int) {
         if (isSpare(rollIndex)) {
             self.bowlingModel.score += 10 + self.bowlingModel.rolls[rollIndex + 2]
-            rollIndex += 3
+            rollIndex += 2
         } else {
             self.bowlingModel.score += self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1]
             rollIndex += 2

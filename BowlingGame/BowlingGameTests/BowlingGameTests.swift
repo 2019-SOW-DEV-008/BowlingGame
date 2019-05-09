@@ -56,12 +56,19 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 9)
     }
     
-    func test_ScoreShouldBeFourteen_WhenItIsASpareFollowedByTwo() {
+    func test_ScoreShouldBeSixteen_WhenItIsASpareFollowedByTwo() {
         rollSpare()
         rollBall(times: 1, pins: 2)
         rollBall(times: 1, pins: 2)
         
-        XCTAssertEqual(bowling.getScore(), 14)
+        XCTAssertEqual(bowling.getScore(), 16)
+    }
+    
+    func test_ScoreShouldReturnTwentyFive_When_TwoSpares_WhereSpareIs_SixInFirstRollAndFourInSecondRoll() {
+        rollSpare()
+        rollSpare()
+        
+        XCTAssertEqual(bowling.getScore(), 26)
     }
     
     private func rollBall(times:Int, pins:Int) {
@@ -72,7 +79,7 @@ class BowlingGameTests: XCTestCase {
     }
     
     private func rollSpare() {
-        rollBall(times: 1, pins: 4)
         rollBall(times: 1, pins: 6)
+        rollBall(times: 1, pins: 4)
     }
 }
