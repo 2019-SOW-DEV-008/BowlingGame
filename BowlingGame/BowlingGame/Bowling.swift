@@ -9,6 +9,6 @@ class Bowling {
     }
     
     func getScore(pins:Int) -> Int {
-        return 0
+        return pins
     }
 }
