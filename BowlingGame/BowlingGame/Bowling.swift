@@ -23,11 +23,15 @@ class Bowling {
     
     func getScore() -> Int {
         var rollIndex = 0
-        
+
+        evaluateScore(&rollIndex)
+        return self.bowlingModel.score
+    }
+    
+    private func evaluateScore(_ rollIndex: inout Int) {
         for _ in self.bowlingModel.rolls {
             self.bowlingModel.score += self.bowlingModel.rolls[rollIndex]
             rollIndex += 1
         }
-        return self.bowlingModel.score
     }
 }

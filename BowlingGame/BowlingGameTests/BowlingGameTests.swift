@@ -54,6 +54,13 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 20)
     }
     
+    func test_ScoreShouldBeSumOfPins_When_PinsAreLessThanTenInTwoRolls() {
+        rollBall(times: 1, pins: 5)
+        rollBall(times: 1, pins: 4)
+        
+        XCTAssertEqual(bowling.getScore(), 9)
+    }
+    
     private func rollBall(times:Int, pins:Int) {
 
         for _ in 1...times {
