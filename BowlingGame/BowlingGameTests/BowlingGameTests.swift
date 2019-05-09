@@ -42,8 +42,22 @@ class BowlingGameTests: XCTestCase {
         let TenIntegers = 1...10
         
         TenIntegers.forEach { pins in
+            rollBall(times: 1, pins: pins)
+        }
+        
+        XCTAssertEqual(bowling.getScore(), 55)
+    }
+    
+    func test_ScoreShouldReturnTwenty_When_PinsAreOneForTwentyRolls() {
+        rollBall(times: 20, pins: 1)
+        
+        XCTAssertEqual(bowling.getScore(), 20)
+    }
+    
+    private func rollBall(times:Int, pins:Int) {
+
+        for _ in 1...times {
             bowling.roll(pins: pins)
         }
-        XCTAssertEqual(bowling.getScore(), 55)
     }
 }
