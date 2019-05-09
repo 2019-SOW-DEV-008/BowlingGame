@@ -28,4 +28,13 @@ class BowlingGameTests: XCTestCase {
         
         XCTAssertEqual(bowling.getScore(pins:9), numberOfPins)
     }
+    
+    func test_ScoreShouldReturnValue_When_TenNumberOfPins_InEverySingleRoll() {
+        let TenIntegers = 1...10
+        
+        TenIntegers.forEach { pins in
+            XCTAssertEqual(bowling.getScore(pins:pins), pins)
+        }
+        
+    }
 }
