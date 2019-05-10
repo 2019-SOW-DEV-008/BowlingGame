@@ -32,6 +32,11 @@ class BowlingPresenter {
         bowlingView.showScore()
         //return self.bowlingModel.score
     }
+    
+    func resetGame() {
+        currentIndex = 0
+        self.bowlingModel.score = 0
+    }
 }
 
 private extension BowlingPresenter {
@@ -61,7 +66,7 @@ private extension BowlingPresenter {
     }
     
     func updateScore(_ rollIndex: Int) {
-        self.bowlingModel.score += getScore(rollIndex)
+        self.bowlingModel.score += getFrameScore(rollIndex)
     }
     
     func isStrike(_ rollIndex: Int) -> (Bool) {
@@ -80,7 +85,7 @@ private extension BowlingPresenter {
         return 10 + self.bowlingModel.rolls[rollIndex + 2]
     }
     
-    func getScore(_ rollIndex: Int) -> Int {
+    func getFrameScore(_ rollIndex: Int) -> Int {
         return self.bowlingModel.rolls[rollIndex] + self.bowlingModel.rolls[rollIndex + 1]
     }
     

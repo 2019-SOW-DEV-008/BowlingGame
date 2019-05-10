@@ -190,7 +190,7 @@ class BowlingPresenterTests: XCTestCase {
     
     func test_ShowZeroScore_WhenResetGameIsInitiated() {
         bowling.getScore()
-        // bowlingPresenter.resetGame()
+        bowling.resetGame()
         
         XCTAssertEqual(bowlingView.score, 0)
     }
