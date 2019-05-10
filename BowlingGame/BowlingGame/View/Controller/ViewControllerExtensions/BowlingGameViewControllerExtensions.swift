@@ -54,7 +54,7 @@ extension BowlingGameViewController {
         enableMidRow()
         enableLastRow()
     }
-    
+
     private func enableOrDisableView(_ view: UIView, _ tag:Int) {
         view.alpha = (view.tag > (10 - tag)) ? 0.4 : 1.0
         view.isUserInteractionEnabled = (view.tag > (10 - tag)) ? false : true

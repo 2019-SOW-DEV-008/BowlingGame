@@ -1,10 +1,6 @@
 import UIKit
 
 class BowlingGameViewController : UIViewController, BowlingView {
-    func showError() {
-        
-    }
-    
     
     @IBOutlet private weak var lblPinsInput: UILabel!
     @IBOutlet private weak var lblInputText: UILabel!
@@ -36,15 +32,11 @@ class BowlingGameViewController : UIViewController, BowlingView {
     
     // Protocols
     func showScore() {
-        let alert = UIAlertController(title: "Score Is", message: String(self.score), preferredStyle: .alert)
-        alert.view.accessibilityIdentifier = "Alert"
-        
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { Void in
-            self.lblPinsInput.text = self.Empty
-            self.bowlingPresenter.resetGame()
-            self.enableAllRows()
-        }))
-        self.present(alert, animated: true, completion: nil)
+        self.showAlert("Score Is", message: String(self.score))
+    }
+    
+    func showError() {
+        self.showAlert("InValid", message: "Max 21 Rolls is Allowed. Please give Valid Input")
     }
     
     private func enableRequiredButtons(_ sender: UIButton) {
@@ -86,5 +78,17 @@ class BowlingGameViewController : UIViewController, BowlingView {
         default:
             break
         }
+    }
+    
+    func showAlert(_ title: String, message: String ) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "Alert"
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { Void in
+            self.lblPinsInput.text = self.Empty
+            self.bowlingPresenter.resetGame()
+            self.enableAllRows()
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
