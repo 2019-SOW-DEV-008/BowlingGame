@@ -7,7 +7,7 @@ Developed the app using MVP Pattern.
 
 Software Specifications :
 Used XCode 10.2 with macOS Mojave 10.14.4
-Used Swift 5 to develop the Game
+Swift Version 5 is used to develop the Game
 
 Problem Description
 
