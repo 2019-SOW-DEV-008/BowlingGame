@@ -54,6 +54,8 @@ class BowlingGameViewController : UIViewController, BowlingView {
     
     func showScore() {
         let alert = UIAlertController(title: "Score Is", message: String(self.score), preferredStyle: .alert)
+        alert.view.accessibilityIdentifier = "Alert"
+    
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { Void in
             self.lblPinsInput.text = self.Empty
             self.bowlingPresenter.resetGame()

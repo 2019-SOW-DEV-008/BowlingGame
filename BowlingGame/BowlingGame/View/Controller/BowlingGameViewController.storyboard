@@ -119,6 +119,9 @@
                                             <constraint firstItem="oHS-tg-4WN" firstAttribute="height" secondItem="d4L-Cw-IOz" secondAttribute="height" id="tQS-tU-DWf"/>
                                             <constraint firstItem="Eld-nw-6sJ" firstAttribute="height" secondItem="d4L-Cw-IOz" secondAttribute="height" id="xA4-eW-GQZ"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="topStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" tag="101" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ogm-YW-hwI">
                                         <rect key="frame" x="0.0" y="70" width="382" height="60"/>
@@ -193,6 +196,9 @@
                                             <constraint firstItem="0Oo-wG-kUe" firstAttribute="height" secondItem="0jF-x1-naA" secondAttribute="height" id="qpz-KF-UvI"/>
                                             <constraint firstItem="er6-QY-nne" firstAttribute="height" secondItem="0jF-x1-naA" secondAttribute="height" id="uTE-Hf-AlU"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="midStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                     <stackView opaque="NO" tag="102" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GHE-Rb-d71">
                                         <rect key="frame" x="166" y="140" width="50" height="50"/>
@@ -213,6 +219,9 @@
                                             <constraint firstAttribute="width" constant="50" id="afX-Vb-kXL"/>
                                             <constraint firstAttribute="height" constant="50" id="qXM-Pk-jpy"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="bottomStackView"/>
+                                        </userDefinedRuntimeAttributes>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -230,6 +239,9 @@
                                 <state key="normal" title="Calculate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="continueBtn"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="calculateScore:" destination="p53-ts-FHE" eventType="touchUpInside" id="67t-6Q-Pz0"/>
                                 </connections>
