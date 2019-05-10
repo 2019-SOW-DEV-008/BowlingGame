@@ -2,7 +2,15 @@ Bowling
 
 Bowling Game is all about the calculating the total Score of Number of pins knocked down in 10 Frames.
 
+Design Pattern:
+Developed the app using MVP Pattern.
+
+Software Specifications :
+Used XCode 10.2 with macOS Mojave 10.14.4
+Used Swift 5 to develop the Game
+
 Problem Description
+
 We will not check for valid rolls.
 We will not check for correct number of rolls and frames.
 We will not provide scores for intermediate frames.
@@ -17,5 +25,8 @@ If on his first try in the frame he knocks down all the pins, this is called a â
 If he gets a spare or strike in the last (tenth) frame, the bowler gets to throw one or two more bonus balls, respectively. These bonus throws are taken as part of the same turn. If the bonus throws knock down all the pins, the process does not repeat: the bonus throws are only used to calculate the score of the final frame.
 The game score is the total of all frame scores.
 
-Design Pattern:
-Developed the app using MVP Pattern.
+Problem Solution:
+
+Handled all requirements along with Calculating Score for Intermediate frames. Intermediate frame score is calculated based on the assumption that subsequent rolls is Zero.
+
+
