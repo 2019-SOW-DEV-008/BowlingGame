@@ -134,7 +134,24 @@ class BowlingGameTests: XCTestCase {
         XCTAssertEqual(bowling.getScore(), 169)
     }
     
+    func test_CheckIfSpareBonusBallAvailable_IfItIsSpareAtTenthFrame() {
+        rollBall(times: 18, pins: 7)
+        rollSpare()
 
+        XCTAssertEqual(bowling.getScore(), 136)
+        
+        XCTAssertTrue(bowling.isSpareBonusAvailable)
+    }
+
+    func test_CheckIfStrikeBonusBallAvailable_IfItIsStrikeAtTenthFrame() {
+        rollBall(times: 18, pins: 7)
+        rollStrike()
+        
+        XCTAssertEqual(bowling.getScore(), 136)
+        
+        XCTAssertTrue(bowling.isStrikeBonusAvailable)
+    }
+    
     private func rollBall(times:Int, pins:Int) {
 
         for _ in 1...times {
