@@ -12,20 +12,18 @@ class BowlingGameViewController : UIViewController, BowlingView {
     private let InputText      = "Input :"
     private let Empty          = ""
     private var bowlingPresenter:BowlingPresenter!
-    private var tapped:Bool = false
+    private var isEligibleToEnableAllRows:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         bowlingPresenter = BowlingPresenter(bowlingView: self, bowlingModel: BowlingModel())
     }
-
+    
     @IBAction func btnAction(_ sender: UIButton) {
         bowlingPresenter.roll(pins: sender.tag)
-        enableRequiredButtons(sender)
-
-        let pinsText = lblPinsInput.text ??  Empty
-        lblPinsInput.text =  pinsText + String(sender.tag)
+        enableOrDisableButtons(sender)
+        displayPinsInput(sender)
     }
     
     @IBAction func calculateScore(_ sender: UIButton) {
@@ -46,11 +44,11 @@ class BowlingGameViewController : UIViewController, BowlingView {
         default:
             break
         }
-        if (tapped) {
+        if (isEligibleToEnableAllRows) {
             enableAllRows()
         }
         if (sender.tag != 10) {
-            tapped.toggle()
+            isEligibleToEnableAllRows.toggle()
         }
     }
     
@@ -62,5 +60,20 @@ class BowlingGameViewController : UIViewController, BowlingView {
             self.enableAllRows()
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func displayPinsInput(_ sender: UIButton) {
+        let pinsText = lblPinsInput.text ??  Empty
+        lblPinsInput.text =  pinsText + getXforStrike(tag:sender.tag)
+    }
+    
+    private func getXforStrike(tag: Int) -> String {
+        return (tag == 10) ? "X" : String(tag)
+    }
+    
+    private func enableOrDisableButtons(_ sender: UIButton) {
+        if (sender.tag != 0 || sender.tag != 10) {
+            enableRequiredButtons(sender)
+        }
     }
 }
