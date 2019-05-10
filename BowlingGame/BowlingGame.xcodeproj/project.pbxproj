@@ -16,6 +16,7 @@
 		9E3A88552284FF4F002A259A /* BowlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A88542284FF4F002A259A /* BowlingView.swift */; };
 		9E3A88582284FFCF002A259A /* BowlingGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A88572284FFCF002A259A /* BowlingGameViewController.swift */; };
 		9E3A885A2284FFDE002A259A /* BowlingGameViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3A88592284FFDE002A259A /* BowlingGameViewController.storyboard */; };
+		9E3A885E2285050D002A259A /* BowlingGameViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3A885D2285050D002A259A /* BowlingGameViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		9E3A88542284FF4F002A259A /* BowlingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingView.swift; sourceTree = "<group>"; };
 		9E3A88572284FFCF002A259A /* BowlingGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameViewController.swift; sourceTree = "<group>"; };
 		9E3A88592284FFDE002A259A /* BowlingGameViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BowlingGameViewController.storyboard; sourceTree = "<group>"; };
+		9E3A885D2285050D002A259A /* BowlingGameViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BowlingGameViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		9E3A885C228502BF002A259A /* ViewControllerExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				9E3A885D2285050D002A259A /* BowlingGameViewControllerExtensions.swift */,
 			);
 			path = ViewControllerExtensions;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E3A884D2284CEE2002A259A /* BowlingPresenter.swift in Sources */,
+				9E3A885E2285050D002A259A /* BowlingGameViewControllerExtensions.swift in Sources */,
 				9E3A88552284FF4F002A259A /* BowlingView.swift in Sources */,
 				9E3A88502284D7F0002A259A /* BowlingModel.swift in Sources */,
 				9E3A881C2284CCD4002A259A /* AppDelegate.swift in Sources */,

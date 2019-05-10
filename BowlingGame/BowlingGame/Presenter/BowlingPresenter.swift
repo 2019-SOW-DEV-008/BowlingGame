@@ -1,7 +1,8 @@
 class BowlingPresenter {
     
     private var bowlingModel:BowlingModel!
-    
+    private var bowlingView:BowlingView!
+
     private var currentIndex = 0
     private let numberOfFrames = 10
     private let numberOfRolls = 21
@@ -9,8 +10,9 @@ class BowlingPresenter {
     var isSpareBonusAvailable = false
     var isStrikeBonusAvailable = false
     
-    init(bowlingModel:BowlingModel) {
+    init(bowlingView: BowlingView, bowlingModel: BowlingModel) {
         self.bowlingModel = bowlingModel
+        self.bowlingView = bowlingView
     }
     
     func roll(pins:Int) {
@@ -18,7 +20,7 @@ class BowlingPresenter {
         currentIndex += 1
     }
     
-    func getScore() -> Int {
+    func getScore() {
         var rollIndex = 0
         let frames = 1...numberOfFrames
         
@@ -26,7 +28,9 @@ class BowlingPresenter {
             evaluateScore(&rollIndex)
         }
         
-        return self.bowlingModel.score
+        bowlingView.score = self.bowlingModel.score
+        bowlingView.showScore()
+        //return self.bowlingModel.score
     }
 }
 

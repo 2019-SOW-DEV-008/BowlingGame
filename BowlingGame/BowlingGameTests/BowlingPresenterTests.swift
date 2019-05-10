@@ -4,28 +4,41 @@ import XCTest
 class BowlingPresenterTests: XCTestCase {
 
     private var bowling:BowlingPresenter!
+    private var bowlingView:SpyBowlingView!
+    private var bowlingModel:BowlingModel!
+
     
     override func setUp() {
-        bowling = BowlingPresenter(bowlingModel: BowlingModel())
+        bowlingView = SpyBowlingView()
+        bowlingModel = BowlingModel()
+        bowling = BowlingPresenter(bowlingView: bowlingView, bowlingModel: bowlingModel)
+        
+        super.setUp()
     }
 
     func test_ScoreShouldReturnZero_WhenZeroPins_InSingleRoll() {
         rollBall(times: 1, pins: 0)
         
-        XCTAssertEqual(bowling.getScore(), 0)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 0)
     }
     
     func test_ScoreShouldReturnValue_When_Nine_NumberOfPins_InSingleRoll() {
         rollBall(times: 1, pins: 9)
         
-        XCTAssertEqual(bowling.getScore(), 9)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 9)
     }
 
     func test_ScoreShouldReturnSix_When_OnePinInFirstRoll_AndFivePinsInSecondRoll() {
         rollBall(times: 1, pins: 1)
         rollBall(times: 1, pins: 5)
         
-        XCTAssertEqual(bowling.getScore(), 6)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 6)
     }
     
     func test_ScoreShouldReturnValue_When_DifferentNumberOfPins_InEverySingleRoll() {
@@ -35,20 +48,26 @@ class BowlingPresenterTests: XCTestCase {
             rollBall(times: 1, pins: pins)
         }
         
-        XCTAssertEqual(bowling.getScore(), 55)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 55)
     }
     
     func test_ScoreShouldReturnTwenty_When_PinsAreOneForTwentyRolls() {
         rollBall(times: 20, pins: 1)
         
-        XCTAssertEqual(bowling.getScore(), 20)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 20)
     }
     
     func test_ScoreShouldBeSumOfPins_When_PinsAreLessThanTenInTwoRolls() {
         rollBall(times: 1, pins: 5)
         rollBall(times: 1, pins: 4)
         
-        XCTAssertEqual(bowling.getScore(), 9)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 9)
     }
     
     func test_ScoreShouldBeSixteen_WhenItIsASpareFollowedByTwo() {
@@ -56,14 +75,18 @@ class BowlingPresenterTests: XCTestCase {
         rollBall(times: 1, pins: 2)
         rollBall(times: 1, pins: 2)
         
-        XCTAssertEqual(bowling.getScore(), 16)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 16)
     }
     
     func test_ScoreShouldReturnTwentySix_When_TwoSpares_WhereSpareIs_SixInFirstRollAndFourInSecondRoll() {
         rollSpare()
         rollSpare()
         
-        XCTAssertEqual(bowling.getScore(), 26)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 26)
     }
     
     func test_ScoreShouldReturnFourteen_When_StrikeFollowedByOneAndOne() {
@@ -71,13 +94,17 @@ class BowlingPresenterTests: XCTestCase {
         rollBall(times: 1, pins: 1)
         rollBall(times: 1, pins: 1)
         
-        XCTAssertEqual(bowling.getScore(), 14)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 14)
     }
     
     func test_ScoreShouldReturnThreeHundred_When_PerfectRoll_WhichIsAllStrikes() {
         rollBall(times: 12, pins: 10)
         
-        XCTAssertEqual(bowling.getScore(), 300)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 300)
     }
     
     func test_EvaluateScore_WithMultipleInput() {
@@ -103,7 +130,9 @@ class BowlingPresenterTests: XCTestCase {
         rollBall(times: 1, pins: 1)
         rollBall(times: 1, pins: 10)
         
-        XCTAssertEqual(bowling.getScore(), 147)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 147)
     }
     
     func test_EvaluateScore_WithMultipleInputValues() {
@@ -126,14 +155,18 @@ class BowlingPresenterTests: XCTestCase {
         rollBall(times: 1, pins: 9)
         rollBall(times: 1, pins: 1)
         
-        XCTAssertEqual(bowling.getScore(), 169)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 169)
     }
     
     func test_CheckIfSpareBonusBallAvailable_IfItIsSpareAtTenthFrame() {
         rollBall(times: 18, pins: 7)
         rollSpare()
 
-        XCTAssertEqual(bowling.getScore(), 136)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 136)
         
         XCTAssertTrue(bowling.isSpareBonusAvailable)
     }
@@ -142,9 +175,24 @@ class BowlingPresenterTests: XCTestCase {
         rollBall(times: 18, pins: 7)
         rollStrike()
         
-        XCTAssertEqual(bowling.getScore(), 136)
+        bowling.getScore()
+        
+        XCTAssertEqual(bowlingView.score, 136)
         
         XCTAssertTrue(bowling.isStrikeBonusAvailable)
+    }
+    
+    func test_ShowScoreInformation_WhenCalculateIsTapped() {
+        bowling.getScore()
+        
+        XCTAssertTrue(bowlingView.scoreInfoIsDisplayed)
+    }
+    
+    func test_ShowZeroScore_WhenResetGameIsInitiated() {
+        bowling.getScore()
+        // bowlingPresenter.resetGame()
+        
+        XCTAssertEqual(bowlingView.score, 0)
     }
     
     private func rollBall(times:Int, pins:Int) {
@@ -161,5 +209,15 @@ class BowlingPresenterTests: XCTestCase {
     
     private func rollStrike() {
         rollBall(times: 1, pins: 10)
+    }
+}
+
+class SpyBowlingView:BowlingView {
+    var score: Int = 0
+    
+    var scoreInfoIsDisplayed = false
+    
+    func showScore() {
+        scoreInfoIsDisplayed = true
     }
 }
