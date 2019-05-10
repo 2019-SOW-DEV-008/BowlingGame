@@ -74,4 +74,40 @@ class BowlingGameUITests: XCTestCase {
         let didShowScoreAlert = app.alerts["Alert"]
         XCTAssertTrue(didShowScoreAlert.exists)
     }
+    
+    func test_ShouldShowErrorAlert_WhenInputIsMoreThan21digitlength() {
+        
+        let app = XCUIApplication()
+        
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+
+        app.buttons["X"].tap()
+
+        app.buttons["X"].tap()
+
+        app.buttons["X"].tap()
+
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        app.buttons["X"].tap()
+        
+        let didShowScoreAlert = app.alerts["Alert"]
+        XCTAssertTrue(didShowScoreAlert.exists)
+    }
 }
