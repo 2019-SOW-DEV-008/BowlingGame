@@ -16,6 +16,10 @@ class BowlingPresenter {
     }
     
     func roll(pins:Int) {
+        if (currentIndex > 20) {
+            bowlingView.showError()
+            return
+        }
         self.bowlingModel.rolls[currentIndex] = pins
         currentIndex += 1
     }

@@ -195,6 +195,18 @@ class BowlingPresenterTests: XCTestCase {
         XCTAssertEqual(bowlingView.score, 0)
     }
     
+    func test_ShowErrorAlert_WhenRollsMoreThan_TwentyOne_IsGivenAsInput() {
+        rollBall(times: 22, pins: 1)
+        
+        XCTAssertTrue(bowlingView.errorAlertIsDisaplyed)
+    }
+    
+    func test_ShouldNotShowErrorAlert_WhenRollsEqualTo_TwentyOne_IsGivenAsInput() {
+        rollBall(times: 21, pins: 1)
+        
+        XCTAssertFalse(bowlingView.errorAlertIsDisaplyed)
+    }
+    
     private func rollBall(times:Int, pins:Int) {
 
         for _ in 1...times {
@@ -216,8 +228,13 @@ class SpyBowlingView:BowlingView {
     var score: Int = 0
     
     var scoreInfoIsDisplayed = false
+    var errorAlertIsDisaplyed = false
     
     func showScore() {
         scoreInfoIsDisplayed = true
+    }
+    
+    func showError() {
+        errorAlertIsDisaplyed = true
     }
 }

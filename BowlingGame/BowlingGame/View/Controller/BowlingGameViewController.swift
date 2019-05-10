@@ -1,6 +1,10 @@
 import UIKit
 
 class BowlingGameViewController : UIViewController, BowlingView {
+    func showError() {
+        
+    }
+    
     
     @IBOutlet private weak var lblPinsInput: UILabel!
     @IBOutlet private weak var lblInputText: UILabel!
