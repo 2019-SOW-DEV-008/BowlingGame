@@ -1,4 +1,4 @@
-class Bowling {
+class BowlingPresenter {
     
     private var bowlingModel:BowlingModel!
     
@@ -30,7 +30,7 @@ class Bowling {
     }
 }
 
-private extension Bowling {
+private extension BowlingPresenter {
     
     func evaluateScore(_ rollIndex: inout Int) {
         if (isStrike(rollIndex)) {

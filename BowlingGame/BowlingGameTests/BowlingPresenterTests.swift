@@ -1,12 +1,12 @@
 import XCTest
 @testable import BowlingGame
 
-class BowlingGameTests: XCTestCase {
+class BowlingPresenterTests: XCTestCase {
 
-    private var bowling:Bowling!
+    private var bowling:BowlingPresenter!
     
     override func setUp() {
-        bowling = Bowling(bowlingModel: BowlingModel())
+        bowling = BowlingPresenter(bowlingModel: BowlingModel())
     }
 
     func test_ScoreShouldReturnZero_WhenZeroPins_InSingleRoll() {
