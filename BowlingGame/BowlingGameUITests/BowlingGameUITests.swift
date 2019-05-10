@@ -83,16 +83,11 @@ class BowlingGameUITests: XCTestCase {
         app.buttons["X"].tap()
         app.buttons["X"].tap()
         app.buttons["X"].tap()
-
         app.buttons["X"].tap()
         app.buttons["X"].tap()
-
         app.buttons["X"].tap()
-
         app.buttons["X"].tap()
-
         app.buttons["X"].tap()
-
         app.buttons["X"].tap()
         app.buttons["X"].tap()
         app.buttons["X"].tap()
