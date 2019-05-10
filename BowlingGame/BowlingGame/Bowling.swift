@@ -4,15 +4,13 @@ class Bowling {
     
     private var currentIndex = 0
     private let numberOfFrames = 10
+    private let numberOfRolls = 21
+    
     var isSpareBonusAvailable = false
     var isStrikeBonusAvailable = false
     
     init(bowlingModel:BowlingModel) {
         self.bowlingModel = bowlingModel
-    }
-    
-    func numberOfRolls() -> Int {
-        return 2
     }
     
     func roll(pins:Int) {
@@ -83,13 +81,13 @@ private extension Bowling {
     }
     
     func checkIfStrikeBonusAvailable(_ rollIndex: Int) {
-        if (rollIndex == 18) {
+        if (rollIndex == (numberOfRolls - 3)) {
             isStrikeBonusAvailable = true
         }
     }
     
     func checkIfSpareBonusAvailable(_ rollIndex: Int) {
-        if (rollIndex == 18) {
+        if (rollIndex == (numberOfRolls - 3)) {
             isSpareBonusAvailable = true
         }
     }

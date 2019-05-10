@@ -8,11 +8,6 @@ class BowlingGameTests: XCTestCase {
     override func setUp() {
         bowling = Bowling(bowlingModel: BowlingModel())
     }
-    
-    func test_NumberOfRollsForAFrame() {
-        
-        XCTAssertEqual(bowling.numberOfRolls(), 2)
-    }
 
     func test_ScoreShouldReturnZero_WhenZeroPins_InSingleRoll() {
         rollBall(times: 1, pins: 0)
