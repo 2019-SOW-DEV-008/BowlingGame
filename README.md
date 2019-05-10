@@ -1,4 +1,4 @@
-Bowling
+# Bowling
 
 Bowling Game is all about the calculating the total Score of Number of pins knocked down in 10 Frames.
 
@@ -9,7 +9,7 @@ Software Specifications :
 Used XCode 10.2 with macOS Mojave 10.14.4
 Swift Version 5 is used to develop the Game
 
-Problem Description
+# Problem Description
 
 We will not check for valid rolls.
 We will not check for correct number of rolls and frames.
@@ -29,4 +29,7 @@ Problem Solution:
 
 Handled all requirements along with Calculating Score for Intermediate frames. Intermediate frame score is calculated based on the assumption that subsequent rolls is Zero.
 
+<p align="center">
+<img src="https://github.com/2019-SOW-DEV-008/BowlingGame/blob/master/BowlingGame.gif"/>
+</p>
 
