@@ -27,41 +27,30 @@ class BowlingGameViewController : UIViewController, BowlingView {
     }
     
     @IBAction func calculateScore(_ sender: UIButton) {
-        let _ = bowlingPresenter.getScore()
+        bowlingPresenter.getScore()
     }
     
-    private func enableRequiredButtons(_ sender: UIButton) {
-        switch sender.tag {
-        case 1:
-            disableLastRow()
-        case 2,3,4,5,6:
-            iterateMidRowToEnable(sender.tag)
-            disableLastRow()
-        case 7,8,9:
-            iterateFirstRowToEnable(sender.tag)
-            disableMidRow()
-            disableLastRow()
-        default:
-            break
-        }
-        if (isEligibleToEnableAllRows) {
-            enableAllRows()
-        }
-        if (sender.tag != 10) {
-            isEligibleToEnableAllRows.toggle()
-        }
-    }
-    
+    // Protocols
     func showScore() {
         let alert = UIAlertController(title: "Score Is", message: String(self.score), preferredStyle: .alert)
         alert.view.accessibilityIdentifier = "Alert"
-    
+        
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { Void in
             self.lblPinsInput.text = self.Empty
             self.bowlingPresenter.resetGame()
             self.enableAllRows()
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func enableRequiredButtons(_ sender: UIButton) {
+        enableButtonsOnCondition(sender)
+        if (isEligibleToEnableAllRows) {
+            enableAllRows()
+        }
+        if (sender.tag != 10) {
+            isEligibleToEnableAllRows.toggle()
+        }
     }
     
     private func displayPinsInput(_ sender: UIButton) {
@@ -76,6 +65,22 @@ class BowlingGameViewController : UIViewController, BowlingView {
     private func enableOrDisableButtons(_ sender: UIButton) {
         if (sender.tag != 0 || sender.tag != 10) {
             enableRequiredButtons(sender)
+        }
+    }
+    
+    private func enableButtonsOnCondition(_ sender: UIButton) {
+        switch sender.tag {
+        case 1:
+            disableLastRow()
+        case 2,3,4,5,6:
+            iterateMidRowToEnable(sender.tag)
+            disableLastRow()
+        case 7,8,9:
+            iterateFirstRowToEnable(sender.tag)
+            disableMidRow()
+            disableLastRow()
+        default:
+            break
         }
     }
 }

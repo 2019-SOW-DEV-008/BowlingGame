@@ -30,7 +30,6 @@ class BowlingPresenter {
         
         bowlingView.score = self.bowlingModel.score
         bowlingView.showScore()
-        //return self.bowlingModel.score
     }
     
     func resetGame() {
